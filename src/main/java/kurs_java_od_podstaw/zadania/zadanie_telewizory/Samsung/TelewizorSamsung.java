@@ -33,9 +33,12 @@ public abstract class TelewizorSamsung implements Telewizor {
     }
 
     @Override
-    public void przelaczProgram(int numer) {
+    public void przelaczProgram(char znak) {
         if(stanWlaczony){
-        numerKanalu = numer;}
+            if (znak == '+'){
+                numerKanalu ++;}
+            else numerKanalu --;
+        }
     }
 
     private void wyswietlajObraz(){

@@ -4,6 +4,6 @@ public interface Telewizor {
     void wlacz();
     void wylacz();
     void akcjaZasilania();
-    void przelaczProgram(int numer);
+    void przelaczProgram(char znak);
 
 }

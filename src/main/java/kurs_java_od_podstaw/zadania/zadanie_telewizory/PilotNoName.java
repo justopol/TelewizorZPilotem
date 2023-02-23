@@ -10,19 +10,15 @@ public class PilotNoName implements Pilot {
     }
 
     @Override
-    public void nacisnijJeden() {
-        telewizor.przelaczProgram(1);
+    public void dodajProgram() {
+        telewizor.przelaczProgram('+');
     }
 
     @Override
-    public void nacisnijDwa() {
-        telewizor.przelaczProgram(2);
+    public void odejmijProgram() {
+        telewizor.przelaczProgram('-');
     }
 
-    @Override
-    public void nacisnijTrzy() {
-        telewizor.przelaczProgram(3);
-    }
 
     @Override
     public void sparujTelewizor(Telewizor telewizor) {

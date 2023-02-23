@@ -45,10 +45,11 @@ public class TelewizorPhilips implements Telewizor {
     }
 
     @Override
-    public void przelaczProgram(int numer) {
-
+    public void przelaczProgram(char znak) {
         if(statusWlaczony){
-            obecnyProgram = numer;
+            if (znak == '+'){
+            obecnyProgram ++;}
+            else obecnyProgram --;
         }
     }
 

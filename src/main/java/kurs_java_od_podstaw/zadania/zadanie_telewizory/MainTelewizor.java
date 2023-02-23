@@ -1,8 +1,6 @@
 package kurs_java_od_podstaw.zadania.zadanie_telewizory;
 
-import kurs_java_od_podstaw.zadania.zadanie_telewizory.Philips.P43PUS65;
 import kurs_java_od_podstaw.zadania.zadanie_telewizory.Philips.P55PUS7334;
-import kurs_java_od_podstaw.zadania.zadanie_telewizory.Samsung.UE43RU7172;
 
 import java.util.Scanner;
 
@@ -20,8 +18,8 @@ public class MainTelewizor {
      Telewizor tv = new P55PUS7334("unikalneid123");
 
         int opcja=0;
-        System.out.println("1. wlacz; 2. wylacz; 3. zmien program; 4. zakoncz program;");
-        while (opcja!=4){
+        System.out.println("1. wlacz; 2. wylacz; 3. zmien program ++; 4. zmien program --; 5. zakoncz program;");
+        while (opcja!=5){
             opcja=scanner.nextInt();
 
             switch (opcja){
@@ -32,9 +30,10 @@ public class MainTelewizor {
                     tv.wylacz();
                     break;
                 case 3:
-                    System.out.println("podaj numer programu:");
-                    int numer = scanner.nextInt();
-                    tv.przelaczProgram(numer);
+                    tv.przelaczProgram('+');
+                    break;
+                case 4:
+                    tv.przelaczProgram('-');
                     break;
             }
         }
@@ -47,27 +46,24 @@ public class MainTelewizor {
         pilot.sparujTelewizor(telewizor);
 
         Scanner scanner = new Scanner(System.in);
-        int opcja;
+        char opcja;
 
-        System.out.println("0. Nacisnij czerwony;1. Nacisnij 1;2. Nacisnij 2;3. Nacisnij 3;4. Zakoncz");
+        System.out.println("0. Nacisnij czerwony;1. dodaj program(+);2. odejmij progeam(-) ;4. Zakoncz");
         do {
-            opcja = scanner.nextInt();
+            opcja = scanner.next().charAt(0);
             switch (opcja){
-                case 0:
+                case '0':
                     pilot.nacisnijCzerwony();
                     break;
-                case 1:
-                    pilot.nacisnijJeden();
+                case '+':
+                    pilot.dodajProgram();
                     break;
-                case 2:
-                    pilot.nacisnijDwa();
-                    break;
-                case 3:
-                    pilot.nacisnijTrzy();
+                case '-':
+                    pilot.odejmijProgram();
                     break;
             }
-        }while (opcja!=4);
-        pilot.nacisnijCzerwony();
+        }while (opcja!='4');
+        telewizor.wylacz();
         scanner.close();
     }
 }
