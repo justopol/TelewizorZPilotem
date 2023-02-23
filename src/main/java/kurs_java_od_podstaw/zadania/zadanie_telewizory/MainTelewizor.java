@@ -67,6 +67,7 @@ public class MainTelewizor {
                     break;
             }
         }while (opcja!=4);
+        pilot.nacisnijCzerwony();
         scanner.close();
     }
 }
