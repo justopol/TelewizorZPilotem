@@ -2,6 +2,9 @@ package kurs_java_od_podstaw.zadania.zadanie_telewizory.Philips;
 
 import kurs_java_od_podstaw.zadania.zadanie_telewizory.Telewizor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TelewizorPhilips implements Telewizor {
 
     private String id;
@@ -9,10 +12,15 @@ public class TelewizorPhilips implements Telewizor {
 
     private int obecnyProgram = 3;
     private int cale;
+    List<String> kanaly= new ArrayList<String>();
 
     public TelewizorPhilips(String id, int cale) {
         this.id = id;
         this.cale = cale;
+        kanaly.add("TVP 1");
+        kanaly.add("polsat");
+        kanaly.add("TVP 2");
+        kanaly.add("tvn");
     }
 
     public String getId() {
@@ -48,7 +56,11 @@ public class TelewizorPhilips implements Telewizor {
     public void przelaczProgram(char znak) {
         if(statusWlaczony){
             if (znak == '+'){
-            obecnyProgram ++;}
+                if (obecnyProgram == kanaly.size()){
+                    obecnyProgram =0;
+                }
+                obecnyProgram ++;
+            }
             else obecnyProgram --;
         }
     }
@@ -58,7 +70,7 @@ public class TelewizorPhilips implements Telewizor {
             @Override
             public void run() {
                 while (statusWlaczony){
-                System.out.println("program: "+obecnyProgram);
+                System.out.println("program: "+kanaly.get(obecnyProgram));
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {

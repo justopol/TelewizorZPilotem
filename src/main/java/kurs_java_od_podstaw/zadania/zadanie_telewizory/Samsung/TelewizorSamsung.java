@@ -2,13 +2,23 @@ package kurs_java_od_podstaw.zadania.zadanie_telewizory.Samsung;
 
 import kurs_java_od_podstaw.zadania.zadanie_telewizory.Telewizor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class TelewizorSamsung implements Telewizor {
     private boolean stanWlaczony = false;
     private int numerKanalu = 1;
     private int cale;
 
+    List<String> kanaly= new ArrayList<String>();
+
     protected TelewizorSamsung(int cale) {
+
         this.cale = cale;
+        kanaly.add("TVP 1");
+        kanaly.add("TVP 2");
+        kanaly.add("polsat");
+        kanaly.add("tvn");
     }
 
     @Override
